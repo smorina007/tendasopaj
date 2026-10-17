@@ -484,6 +484,56 @@ footer .wrap{padding-block:30px;display:flex;justify-content:space-between;gap:1
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq details p{color:var(--muted);padding:0 0 22px;max-width:62ch}
 
+/* ---------- AI assistant ---------- */
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.bot-fab{position:fixed;z-index:45;right:calc(var(--gutter-r) + 4px);bottom:calc(env(safe-area-inset-bottom,0px) + 18px);display:flex;align-items:center;gap:10px;background:var(--brass);color:#3A0C26;border:0;border-radius:999px;padding:10px 18px 10px 10px;font:700 15px/1 var(--f-body);cursor:pointer;box-shadow:0 16px 34px -12px rgba(0,0,0,.65)}
+.bot-fab:hover{background:var(--brass-hi)}
+.bot-fab-ico{width:36px;height:36px;border-radius:50%;background:#3A0C26;color:var(--brass-hi);display:grid;place-items:center}
+.bot-fab-ico svg{width:20px;height:20px}
+.bot-live{position:absolute;top:8px;left:36px;width:10px;height:10px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 2px var(--brass)}
+.bot-fab.on .bot-live{display:none}
+.pill{bottom:calc(env(safe-area-inset-bottom,0px) + 84px)!important}
+.toast{bottom:calc(env(safe-area-inset-bottom,0px) + 150px)!important}
+.bot{position:fixed;z-index:46;right:calc(var(--gutter-r) + 4px);bottom:calc(env(safe-area-inset-bottom,0px) + 84px);width:min(390px, calc(100vw - 32px));height:min(600px, calc(100dvh - 130px));display:flex;flex-direction:column;background:var(--ink-2);border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 30px 70px -20px rgba(0,0,0,.7)}
+.bot[hidden]{display:none!important}
+.bot-head{display:flex;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid var(--line);background:linear-gradient(120deg,rgba(238,157,185,.16),transparent 70%)}
+.bot-head div{display:grid;gap:2px;min-width:0}
+.bot-head strong{font-family:var(--f-display);font-size:19px;font-weight:600}
+.bot-head span{font-size:12px;color:var(--muted)}
+.bot-ava{width:40px;height:40px;flex:none;border-radius:50%;background:var(--brass);color:#3A0C26;display:grid;place-items:center}
+.bot-ava svg{width:22px;height:22px}
+.bot-x{margin-left:auto;background:none;border:1px solid var(--line);color:var(--muted);border-radius:50%;width:34px;height:34px;cursor:pointer;flex:none}
+.bot-x:hover{color:var(--ivory);border-color:var(--brass)}
+.bot-msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;overscroll-behavior:contain}
+.msg{display:flex;flex-direction:column;gap:8px;max-width:88%}
+.msg.me{align-self:flex-end;align-items:flex-end}
+.bubble{padding:11px 14px;border-radius:16px;font-size:14.5px;line-height:1.5;overflow-wrap:anywhere}
+.msg.bot .bubble{background:var(--ink-3);border-top-left-radius:4px}
+.msg.me .bubble{background:var(--brass);color:#3A0C26;border-top-right-radius:4px;font-weight:500}
+.bubble strong{color:var(--brass-hi);font-weight:700}
+.msg.me .bubble strong{color:inherit}
+.msg-actions{display:flex;flex-wrap:wrap;gap:6px}
+.msg-act{font:600 13px/1 var(--f-body);padding:9px 12px;border-radius:999px;border:1px solid var(--brass);color:var(--brass-hi);background:transparent;text-decoration:none;cursor:pointer}
+.msg-act:hover{background:var(--brass);color:#3A0C26}
+.typing{display:flex;gap:5px;padding:14px 16px}
+.typing i{width:7px;height:7px;border-radius:50%;background:var(--muted);animation:dot 1s infinite}
+.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+@keyframes dot{0%,80%,100%{opacity:.3;transform:translateY(0)}40%{opacity:1;transform:translateY(-3px)}}
+.bot-chips{display:flex;gap:6px;overflow-x:auto;padding:10px 12px;border-top:1px solid var(--line);scrollbar-width:none}
+.bot-chips::-webkit-scrollbar{display:none}
+.chip-q{flex:none;font:600 13px/1 var(--f-body);padding:9px 12px;border-radius:999px;border:1px solid var(--line);background:var(--ink);color:var(--ivory);cursor:pointer;white-space:nowrap}
+.chip-q:hover{border-color:var(--brass);color:var(--brass-hi)}
+.bot-input{display:flex;gap:8px;padding:10px 12px calc(12px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line)}
+.bot-input input{flex:1;min-width:0;background:var(--ink);border:1px solid var(--line);border-radius:999px;color:var(--ivory);font:500 16px/1.2 var(--f-body);padding:12px 16px}
+.bot-input input:focus{outline:none;border-color:var(--brass)}
+.bot-input button{width:46px;height:46px;flex:none;border-radius:50%;border:0;background:var(--brass);color:#3A0C26;cursor:pointer;display:grid;place-items:center}
+.bot-input button svg{width:20px;height:20px}
+@media (max-width:520px){
+  .bot{left:8px;right:8px;width:auto;bottom:calc(env(safe-area-inset-bottom,0px) + 80px);height:calc(100dvh - 140px)}
+  .bot-fab-txt{display:none}.bot-fab{padding:10px}
+}
+@media (prefers-reduced-motion:reduce){.typing i{animation:none}}
+
 /* ---------- 3D colour toggle ---------- */
 .tint{position:absolute;z-index:3;top:18px;right:20px;display:flex;gap:6px}
 .tint button{background:rgba(31,14,28,.7);color:var(--muted);border:1px solid var(--line);border-radius:999px;font:600 12px/1 var(--f-body);padding:8px 12px;cursor:pointer;display:flex;gap:7px;align-items:center;backdrop-filter:blur(6px)}
@@ -791,6 +841,26 @@ footer .wrap{padding-block:30px;display:flex;justify-content:space-between;gap:1
 
 <a class="pill" href="#kontakti" id="pill" hidden>Kërkesa <span class="cnt" id="pillCnt">0</span></a>
 <div class="toast" id="toast" role="status"></div>
+
+<button class="bot-fab" id="botFab" type="button" aria-controls="bot" aria-expanded="false" aria-label="Hap asistentin AI TendaSopaj">
+  <span class="bot-fab-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 18V11l8-5 8 5v7"/><path d="M4 11h16"/><path d="M10 18v-4h4v4"/></svg></span>
+  <span class="bot-fab-txt">Pyet AI</span><span class="bot-live"></span>
+</button>
+<section class="bot" id="bot" hidden role="dialog" aria-label="AI TendaSopaj">
+  <header class="bot-head">
+    <span class="bot-ava"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 18V11l8-5 8 5v7"/><path d="M4 11h16"/><path d="M10 18v-4h4v4"/></svg></span>
+    <div><strong>AI TendaSopaj</strong><span>Përgjigje të menjëhershme · 24/7</span></div>
+    <button type="button" id="botClose" class="bot-x" aria-label="Mbyll">✕</button>
+  </header>
+  <div class="bot-msgs" id="botMsgs" aria-live="polite"></div>
+  <div class="bot-chips" id="botChips"></div>
+  <form class="bot-input" id="botForm">
+    <label for="botIn" class="sr">Pyetja juaj</label>
+    <input id="botIn" type="text" placeholder="Shkruani pyetjen tuaj…" autocomplete="off" maxlength="300">
+    <button type="submit" aria-label="Dërgo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12h15M13 6l6 6-6 6"/></svg></button>
+  </form>
+</section>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
@@ -1303,6 +1373,136 @@ function buildScene(){
     toHero(){ mode='hero'; $('#heroStage').appendChild(renderer.domElement); resize(); placeCam(); }
   };
 }
+})();
+/* ===== AI TendaSopaj: answer engine (pure) ===== */
+const BOT = (function(){
+  const PHONE='+383 49 479 471';
+  const norm=t=>t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/ë/g,'e').replace(/ç/g,'c').replace(/[^a-z0-9\s]/g,' ');
+  const CITIES=['Klinë','Pejë','Gjakovë','Prizren','Malishevë','Rahovec','Istog','Skenderaj','Drenas','Mitrovicë','Prishtinë','Suharekë','Deçan','Ferizaj','Gjilan','Lipjan','Podujevë','Vushtrri','Kamenicë','Dragash','Fushë Kosovë','Obiliq','Shtime','Kaçanik','Junik','Viti'];
+  const A={
+    call:{label:'Thirr '+PHONE, href:'tel:+38349479471'},
+    wa:{label:'Shkruaj në WhatsApp', href:'https://wa.me/38349479471'},
+    maps:{label:'Hap në Google Maps', href:'https://www.google.com/maps/search/?api=1&query=Zajm%2C%20Klin%C3%AB%2C%20Kosov%C3%AB'},
+    tents:{label:'Shiko tendat', act:'cat:tenda'}, wc:{label:'Shiko WC-të', act:'cat:wc'}, frigo:{label:'Shiko frigoriferët', act:'cat:frigo'},
+    furn:{label:'Shiko tavolinat & karriget', act:'cat:mobilje'}, decor:{label:'Shiko dekorin', act:'cat:dekor'},
+    plan:{label:'Hap planifikuesin', act:'go:planifikuesi'}, form:{label:'Plotëso kërkesën', act:'go:kontakti'}, gal:{label:'Shiko galerinë', act:'go:galeria'}
+  };
+  const INTENTS=[
+    {id:'greet', k:['pershendetje','tung','mirdita','mirembrema','mengjes','hello','hi','hey','cka ka','qka ka','si je','si jeni','ckemi','qkemi','alo'],
+      r:()=>({t:'Përshëndetje! Unë jam asistenti i TendaSopaj. Ju ndihmoj me tenda, WC portabël, frigoriferë, tavolina, karrige dhe dekor, me qira ose në shitje. Çfarë ju intereson?'})},
+    {id:'thanks', k:['faleminderit','flm','rrofsh','rrofshi','thanks','fala','shum mire'],
+      r:()=>({t:'S\'ka përse! Nëse keni pyetje tjetër, jam këtu. Për ofertë na thirrni ose na shkruani në WhatsApp.', a:[A.call,A.wa]})},
+    {id:'location', k:['ku','adres','gjeni','ndodh','lokacion','lokacjon','zajm','vendndodh','maps','harta','harte'],
+      r:()=>({t:'Jemi në **Zajm, Klinë, Kosovë**. Pajisjet i sjellim ne te vendi i ahengut tuaj, kudo në Kosovë, kështu që nuk keni nevojë të vini te ne.', a:[A.maps,A.call]})},
+    {id:'contact', k:['kontakt','numr','numer','telefon','tel','thirr','whatsapp','viber','mesazh','shkruaj','lajmero','lidh me ju','email','imell'],
+      r:()=>({t:`Na gjeni në telefon dhe WhatsApp: **${PHONE}**. Mund të na thirrni direkt ose të plotësoni kërkesën në faqe, që ju përgatit mesazhin për WhatsApp.`, a:[A.call,A.wa,A.form]})},
+    {id:'specs', k:['pvc','material','celik','gram','tub','konstruksion','cilesi','kualitet','forte','era','shi','sa e forte','galvaniz'],
+      r:()=>({t:'Karakteristikat e tendave tona:\n• Çatia: PVC 500 g/m²\n• Anët: PVC 380 g/m²\n• Konstruksioni: tuba çeliku të galvanizuar\n• Tubat: 38 × 1,0 mm dhe 42 × 1,2 mm\n• Lidhëset: me dado të salduar\n• Baza: me shufër toke', a:[A.tents]})},
+    {id:'color', k:['transparent','xham','bardh','ngjyr','qelq','e qarte'],
+      r:()=>({t:'Tendat i kemi në dy ngjyra: **të bardha** (PVC, me dritare me hark) dhe **transparente**, që duken bukur në ahengje mbrëmjeje me drita. Të gjitha madhësitë vijnë në të dyja ngjyrat.', a:[A.tents]})},
+    {id:'tents', k:['tend','cader','cadra','cadër','shatorr','cador','madhesi','permas','dimension','metra','sa te medha'],
+      r:()=>({t:'Kemi katër madhësi tendash, të bardha ose transparente:\n• **5 × 6 m**, 30 m², ≈ 27 mysafirë ulur\n• **5 × 8 m**, 40 m², ≈ 36 mysafirë\n• **5 × 10 m**, 50 m², ≈ 45 mysafirë\n• **6 × 12 m**, 72 m², ≈ 65 mysafirë\n\nLartësia anësore është 2,6 m. I japim me qira dhe i shesim.', a:[A.tents,A.plan]})},
+    {id:'wc', k:['wc','tualet','banjo','nevojtore','toalet','kabin','hale','sanitar'],
+      r:()=>({t:'Kemi:\n• **WC portabël standard**, kabinë plastike me ajrosje, rreth 1 WC për 60 mysafirë\n• **WC VIP** me lavaman, ujë rrjedhës, pasqyrë dhe ndriçim\n• **Stacion për larje duarsh**\n• **WC për kantiere** dhe evente publike, edhe në sasi\n\nI japim me qira dhe i shesim.', a:[A.wc,A.call]})},
+    {id:'frigo', k:['frigorifer','frigo','ftoh','pije','birr','uje','fresk','ftohese'],
+      r:()=>({t:'Për pije të freskëta kemi:\n• **Frigorifer me derë xhami 400 L**, rreth 300 kanaçe\n• **Frigorifer me 2 dyer 1000 L** për ahengje të mëdha\n• **Dhomë ftohëse mobile** kur sasia është shumë e madhe\n\nRekomandojmë rreth 1 frigorifer 400 L për 80 mysafirë.', a:[A.frigo]})},
+    {id:'furn', k:['tavolin','karrig','ulese','chiavari','kiavari','mbules','fjongo','koktej'],
+      r:()=>({t:'Kemi tavolina të rrumbullakëta Ø 180 cm (10 vende), tavolina drejtkëndore 180 × 80 cm, tavolina koktej, karrige Chiavari (ari, argjend, kristal) dhe karrige me mbulesë të bardhë e fjongo. Mbulesat e tavolinave janë të përfshira.', a:[A.furn,A.gal]})},
+    {id:'decor', k:['dekor','drita','llamb','balon','hark','tapet','skene','podium','dysheme','llambadar','lule','ngroh','zbukur'],
+      r:()=>({t:'Për dekor kemi drita vargu, llambadarë kristali, harqe me balona e lule, tapet të kuq dhe jeshil, skenë e pistë vallëzimi, dysheme për tendë dhe ngrohës me gaz për stinën e ftohtë.', a:[A.decor,A.gal]})},
+    {id:'price', k:['sa kushton','kushton','cmim','qmim','cmimi','euro','eur','pare','oferte','sa del','sa bon','sa ben','sa esht','lir','shtrenjt'],
+      r:()=>({t:'Çmimi varet nga madhësia e tendës, data, vendi i ahengut dhe pajisjet shtesë, prandaj e japim me ofertë. Na tregoni datën, vendin dhe numrin e mysafirëve dhe ju përgjigjemi shpejt.', a:[A.wa,A.call,A.form]})},
+    {id:'buy', k:['blej','bleje','blerje','shit','shitje','shesni','shisni','me ble','e blej'],
+      r:()=>({t:'Po, të gjitha produktet i shesim: tenda, WC portabël, frigoriferë, tavolina, karrige dhe dekor. Ju ndihmojmë të zgjidhni modelin e duhur dhe e sjellim deri te ju. Për çmim shitjeje na kontaktoni.', a:[A.call,A.wa]})},
+    {id:'rent', k:['qira','qera','me qera','me qira','merr me','huazim'],
+      r:()=>({t:'Me qira ofrojmë gjithçka për ahengun: tendë, WC, frigoriferë, tavolina, karrige dhe dekor. Ne i sjellim, i montojmë një ditë para dhe i çmontojmë pas ahengut.', a:[A.plan,A.form]})},
+    {id:'install', k:['mont','ngre','ngrit','cmont','transport','sjell','dergese','dorez','kush e ngre','vendos'],
+      r:()=>({t:'Po, ekipi ynë e bën gjithë punën: inspektojmë terrenin, e sjellim dhe e montojmë tendën një ditë para ahengut, pastaj e çmontojmë dhe e lëmë terrenin siç e gjetëm.', a:[A.form]})},
+    {id:'cities', k:['qytet','vini','vjen','vijni','punoni ne','kosov','larg','afer','rajon','fshat'],
+      r:()=>({t:'Punojmë kudo në Kosovë. Baza jonë është në Zajm të Klinës dhe shpesh jemi në Klinë, Pejë, Gjakovë, Prizren, Malishevë, Rahovec, Istog, Skenderaj, Drenas, Mitrovicë dhe Prishtinë.', a:[A.call]})},
+    {id:'booking', k:['rezerv','data','e lire','i lire','datat','kur','zene','termin','sa heret','afat'],
+      r:()=>({t:'Rezervoni sa më herët, sidomos për dasmat e verës kur datat zihen shpejt. Na tregoni datën dhe ju konfirmojmë nëse është e lirë.', a:[A.wa,A.form]})},
+    {id:'hours', k:['orar','ore','hapur','mbyll','punoni sot','e diel','e shtune'],
+      r:()=>({t:'Për orarin dhe për pyetje të shpejta na thirrni ose na shkruani në WhatsApp. Përgjigjemi sa më shpejt.', a:[A.call,A.wa]})}
+  ];
+  const CHIPS=['Ku ndodheni?','Si t\'ju kontaktoj?','Çfarë tenda keni?','Çfarë WC keni?','Sa kushton?','Frigoriferë për pije','Tavolina & karrige','A i shitni?','A e montoni ju?','Sa tendë më duhet për 100 mysafirë?'];
+  const TENTS=[[30,'5 × 6 m'],[40,'5 × 8 m'],[50,'5 × 10 m'],[72,'6 × 12 m']];
+
+  function guests(n){
+    const need=Math.ceil(n*1.1*1.15), t=TENTS.find(x=>x[0]>=need);
+    const tent = t ? `një tendë **${t[1]}** (${t[0]} m²)` : `**${Math.ceil(need/72)} tenda 6 × 12 m**`;
+    return {t:`Për **${n} mysafirë** të ulur ju duhen rreth ${need} m², pra ${tent}. Do t'ju duheshin edhe rreth **${Math.ceil(n/10)} tavolina** të rrumbullakëta, **${n} karrige**, **${Math.max(1,Math.ceil(n/60))} WC** dhe **${Math.max(1,Math.ceil(n/80))} frigoriferë** 400 L.\n\nKjo është llogaritje orientuese. Për ofertë të saktë na kontaktoni.`, a:[A.plan,A.wa]};
+  }
+
+  function answer(raw){
+    const t=' '+norm(raw)+' ';
+    const sz=t.match(/\b(5|6)\s*(?:x|\s)\s*(6|8|10|12)\b/);
+    if(sz){ const area=+sz[1]*+sz[2], known=TENTS.find(x=>x[1]===`${sz[1]} × ${sz[2]} m`);
+      if(known) return {t:`Tenda **${sz[1]} × ${sz[2]} m** ka ${area} m² dhe nxë rreth **${Math.floor(area/1.1)} mysafirë** të ulur në tavolina, ose rreth ${Math.floor(area/0.6)} në këmbë. E kemi të bardhë dhe transparente, me qira dhe në shitje.`, a:[A.tents,A.wa]};
+      return {t:'Tendat tona janë 5 × 6, 5 × 8, 5 × 10 dhe 6 × 12 m. Për madhësi tjetër na kontaktoni.', a:[A.tents,A.call]}; }
+    const num=t.match(/(\d{2,4})\s*(mysafir|musafir|persona|person|veta|vet|njerez|njerz|te ftuar|mik|vende|guest)/) || (/(mysafir|musafir|persona|veta|njerez)/.test(t) && t.match(/(\d{2,4})/));
+    if(num){ const n=+num[1]; if(n>=5&&n<=3000) return guests(n); }
+    const city=CITIES.find(c=>t.includes(' '+norm(c).trim().slice(0,5)));
+    let best=null, score=0;
+    INTENTS.forEach(it=>{ let s=0; it.k.forEach(k=>{ if(t.includes(k.length<=3?' '+k+' ':k)) s+= k.length>4?2:1; }); if(s>score){score=s; best=it;} });
+    if(city && (!best || ['cities','location','install','greet'].includes(best.id) || score<2)){
+      return {t:`Po, vijmë edhe në **${city}**. Pajisjet i sjellim dhe i montojmë ne, kudo në Kosovë. Na tregoni datën dhe vendin e saktë për ofertë.`, a:[A.wa,A.call]};
+    }
+    if(best) return best.r();
+    return {t:'Nuk jam i sigurt që e kuptova pyetjen. Mund të zgjidhni një nga pyetjet më poshtë, ose të flisni direkt me ne në telefon apo WhatsApp.', a:[A.call,A.wa], chips:true};
+  }
+  return {answer, CHIPS};
+})();
+
+/* ===== AI TendaSopaj: chat UI ===== */
+(function(){
+  const $=s=>document.querySelector(s);
+  const fab=$('#botFab'), box=$('#bot'), msgs=$('#botMsgs'), chips=$('#botChips'), form=$('#botForm'), input=$('#botIn');
+  const esc=t=>t.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const fmt=t=>esc(t).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');
+  let started=false;
+  function scroll(){ msgs.scrollTop=msgs.scrollHeight; }
+  function add(who,html,actions){
+    const m=document.createElement('div'); m.className='msg '+who; m.innerHTML='<div class="bubble">'+html+'</div>';
+    if(actions&&actions.length){
+      const row=document.createElement('div'); row.className='msg-actions';
+      actions.forEach(a=>{
+        const el=a.href?document.createElement('a'):document.createElement('button');
+        el.className='msg-act'; el.textContent=a.label;
+        if(a.href){ el.href=a.href; if(a.href.startsWith('http')){ el.target='_blank'; el.rel='noopener'; } }
+        else { el.type='button'; el.dataset.act=a.act; }
+        row.appendChild(el);
+      });
+      m.appendChild(row);
+    }
+    msgs.appendChild(m); scroll();
+  }
+  function renderChips(){ chips.innerHTML=BOT.CHIPS.map(c=>`<button type="button" class="chip-q">${esc(c)}</button>`).join(''); }
+  function reply(q){
+    add('me',esc(q));
+    const typing=document.createElement('div'); typing.className='msg bot'; typing.innerHTML='<div class="bubble typing"><i></i><i></i><i></i></div>';
+    msgs.appendChild(typing); scroll();
+    const r=BOT.answer(q);
+    setTimeout(()=>{ typing.remove(); add('bot',fmt(r.t),r.a); }, Math.min(1100, 420+r.t.length*2));
+  }
+  function open(){
+    box.hidden=false; fab.setAttribute('aria-expanded','true'); fab.classList.add('on');
+    if(!started){ started=true; renderChips(); add('bot',fmt('Përshëndetje! Unë jam **AI TendaSopaj**. Pyetni për tenda, WC portabël, frigoriferë, tavolina, karrige, dekor, çmime ose rezervime. Zgjidhni një pyetje ose shkruani tuajën.')); }
+    setTimeout(()=>input.focus(),50);
+  }
+  function close(){ box.hidden=true; fab.setAttribute('aria-expanded','false'); fab.classList.remove('on'); }
+  fab.addEventListener('click',()=> box.hidden?open():close());
+  $('#botClose').addEventListener('click',close);
+  document.addEventListener('keydown',e=>{ if(e.key==='Escape' && !box.hidden) close(); });
+  chips.addEventListener('click',e=>{ const b=e.target.closest('.chip-q'); if(b) reply(b.textContent); });
+  form.addEventListener('submit',e=>{ e.preventDefault(); const q=input.value.trim(); if(!q) return; input.value=''; reply(q); });
+  msgs.addEventListener('click',e=>{
+    const b=e.target.closest('button.msg-act'); if(!b) return;
+    const [kind,val]=b.dataset.act.split(':');
+    if(kind==='cat'){ const tab=document.querySelector(`[data-cat="${val}"]`); if(tab) tab.click(); document.getElementById('katalogu').scrollIntoView({behavior:'smooth'}); }
+    else document.getElementById(val).scrollIntoView({behavior:'smooth'});
+    if(window.innerWidth<700) close();
+  });
 })();
 </script>
 
