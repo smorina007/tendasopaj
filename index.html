@@ -572,7 +572,7 @@ footer .wrap{padding-block:30px;display:flex;justify-content:space-between;gap:1
 .msg{display:flex;flex-direction:column;gap:8px;max-width:88%}
 .msg.me{align-self:flex-end;align-items:flex-end}
 .bubble{padding:11px 14px;border-radius:16px;font-size:14.5px;line-height:1.5;overflow-wrap:anywhere}
-.msg.bot .bubble{background:var(--ink-3);border-top-left-radius:4px}
+.msg.ai .bubble{background:var(--ink-3);border-top-left-radius:4px}
 .msg.me .bubble{background:var(--brass);color:#3A0C26;border-top-right-radius:4px;font-weight:500}
 .bubble strong{color:var(--brass-hi);font-weight:700}
 .msg.me .bubble strong{color:inherit}
@@ -1639,14 +1639,14 @@ const BOT = (function(){
   function renderChips(){ chips.innerHTML=BOT.CHIPS.map(c=>`<button type="button" class="chip-q">${esc(c)}</button>`).join(''); }
   function reply(q){
     add('me',esc(q));
-    const typing=document.createElement('div'); typing.className='msg bot'; typing.innerHTML='<div class="bubble typing"><i></i><i></i><i></i></div>';
+    const typing=document.createElement('div'); typing.className='msg ai'; typing.innerHTML='<div class="bubble typing"><i></i><i></i><i></i></div>';
     msgs.appendChild(typing); scroll();
     const r=BOT.answer(q);
-    setTimeout(()=>{ typing.remove(); add('bot',fmt(r.t),r.a); }, Math.min(1100, 420+r.t.length*2));
+    setTimeout(()=>{ typing.remove(); add('ai',fmt(r.t),r.a); }, Math.min(1100, 420+r.t.length*2));
   }
   function open(){
     box.hidden=false; fab.setAttribute('aria-expanded','true'); fab.classList.add('on');
-    if(!started){ started=true; renderChips(); add('bot',fmt('Përshëndetje! Unë jam **AI TendaSopaj**. Pyetni për tenda, WC portabël, frigoriferë, tavolina, karrige, dekor, çmime ose rezervime. Zgjidhni një pyetje ose shkruani tuajën.')); }
+    if(!started){ started=true; renderChips(); add('ai',fmt('Përshëndetje! Unë jam **AI TendaSopaj**. Pyetni për tenda, WC portabël, frigoriferë, tavolina, karrige, dekor, çmime ose rezervime. Zgjidhni një pyetje ose shkruani tuajën.')); }
     setTimeout(()=>input.focus(),50);
   }
   function close(){ box.hidden=true; fab.setAttribute('aria-expanded','false'); fab.classList.remove('on'); }
