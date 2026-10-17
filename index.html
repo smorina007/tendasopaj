@@ -484,6 +484,70 @@ footer .wrap{padding-block:30px;display:flex;justify-content:space-between;gap:1
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq details p{color:var(--muted);padding:0 0 22px;max-width:62ch}
 
+/* ---------- Gallery (grouped) ---------- */
+.sec-row{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.gfilters{display:flex;flex-wrap:wrap;gap:6px}
+.gf{font:600 13px/1 var(--f-body);padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--ivory);cursor:pointer}
+.gf .n{font-family:var(--f-mono);font-size:11px;opacity:.6;margin-left:6px}
+.gf:hover{border-color:var(--brass)}
+.gf[aria-pressed="true"]{background:var(--brass);color:#3A0C26;border-color:var(--brass)}
+.masonry{columns:3 280px;column-gap:14px;margin-top:32px}
+.masonry figure{break-inside:avoid;margin:0 0 14px;position:relative;border-radius:16px;overflow:hidden;background:var(--ink-2)}
+.masonry figure[hidden]{display:none!important}
+.gimg{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in}
+.masonry img{display:block;width:100%;height:auto;transition:transform .6s ease}
+.masonry figure:hover img{transform:scale(1.04)}
+.masonry figcaption{position:absolute;left:0;right:0;bottom:0;padding:36px 16px 14px;background:linear-gradient(transparent,rgba(31,10,26,.85));font-size:13.5px;pointer-events:none}
+.lb{position:fixed;inset:0;z-index:90;background:rgba(18,6,16,.94);display:flex;align-items:center;justify-content:center;gap:12px;padding:calc(env(safe-area-inset-top,0px) + 56px) var(--gutter-r) calc(env(safe-area-inset-bottom,0px) + 24px) var(--gutter-l)}
+.lb[hidden]{display:none!important}
+.lb figure{margin:0;display:grid;gap:12px;justify-items:center;min-width:0;flex:1}
+.lb img{max-width:100%;max-height:calc(100dvh - 160px);border-radius:12px;object-fit:contain}
+.lb figcaption{color:var(--ivory);font-size:15px;text-align:center}
+.lb-nav,.lb-x{background:rgba(255,255,255,.08);border:1px solid var(--line);color:var(--ivory);border-radius:50%;width:48px;height:48px;font-size:26px;line-height:1;cursor:pointer;flex:none}
+.lb-nav:hover,.lb-x:hover{border-color:var(--brass);color:var(--brass-hi)}
+.lb-x{position:absolute;top:calc(env(safe-area-inset-top,0px) + 12px);right:var(--gutter-r);font-size:18px}
+@media (max-width:600px){.lb-nav{position:absolute;bottom:calc(env(safe-area-inset-bottom,0px) + 20px)}.lb-nav.prev{left:30%}.lb-nav.next{right:30%}.lb img{max-height:calc(100dvh - 220px)}}
+
+/* ---------- Flip book ---------- */
+.bookband{background:radial-gradient(90% 70% at 50% 40%, #43193B 0%, var(--ink) 70%);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden}
+.bookband .wrap{padding-block:clamp(56px,7vw,100px)}
+.bookband h2{font-size:clamp(34px,4.4vw,58px);line-height:1.02}
+.book-hint{color:var(--muted);font-size:14px}
+.book-stage{margin:36px auto 0;max-width:980px;min-height:300px}
+.book{margin:0 auto}
+.book.fallback{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px}
+.book.fallback .pg{flex:0 0 min(78vw,360px);aspect-ratio:3/4;scroll-snap-align:center}
+.pg{background:var(--linen-2);color:var(--text-dark);overflow:hidden}
+.pg-in{position:relative;height:100%;display:flex;flex-direction:column;box-shadow:inset -14px 0 24px -18px rgba(59,22,49,.35)}
+.pg-img{flex:0 0 56%;overflow:hidden;background:#F3D6E1}
+.pg-img img{width:100%;height:100%;object-fit:cover;display:block}
+.pg-txt{padding:18px 22px 40px;display:grid;gap:8px;align-content:start;min-height:0}
+.pg-text{padding:30px 26px 44px;gap:12px;display:flex;flex-direction:column;background:linear-gradient(180deg,#FFF6F9,#F9E4EC)}
+.pg-eb{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#B23D6E}
+.pg h3{font-family:var(--f-display);font-weight:500;font-size:clamp(17px,2.1vw,24px);line-height:1.1}
+.pg p{font-size:clamp(12px,1.25vw,14px);line-height:1.5;color:var(--muted-dark)}
+.pg-list{list-style:none;margin:4px 0 0;padding:0;display:grid}
+.pg-list li{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px solid rgba(59,22,49,.12);font-size:clamp(11.5px,1.2vw,13.5px)}
+.pg-list b{font-weight:700}
+.pg-list span{font-family:var(--f-mono);text-align:right;color:var(--muted-dark)}
+.pg-foot{position:absolute;left:22px;right:22px;bottom:14px;display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#A47388}
+.pg-cover{background:var(--ink)}
+.pg-cover .pg-in{color:var(--ivory);box-shadow:none}
+.pg-cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+.pg-cover .cov{position:relative;margin-top:auto;padding:28px;display:grid;gap:10px;background:linear-gradient(transparent,rgba(31,14,28,.92) 40%)}
+.pg-back .cov{margin:auto 0;background:none;text-align:center;justify-items:center}
+.pg-back{background:radial-gradient(100% 80% at 50% 30%, #5A2248, var(--ink))}
+.cov .pg-eb{color:var(--brass-hi)}
+.cov-mark{font-family:var(--f-display);font-size:clamp(30px,4vw,48px);line-height:1}
+.cov-mark i{color:var(--brass);font-style:italic}
+.cov p{color:var(--ivory);opacity:.85;font-size:13px}
+.cov-hint{font-family:var(--f-mono);font-size:11px;color:var(--muted);letter-spacing:.08em}
+.cov-phone{font-family:var(--f-display);font-size:clamp(22px,3vw,32px);color:var(--brass-hi)}
+.book-ctrl{display:flex;justify-content:center;align-items:center;gap:18px;margin-top:22px}
+.bk-btn{width:50px;height:50px;border-radius:50%;border:1px solid var(--line);background:var(--ink-2);color:var(--ivory);font-size:26px;line-height:1;cursor:pointer}
+.bk-btn:hover{border-color:var(--brass);color:var(--brass-hi)}
+#bkNum{color:var(--muted);font-size:13px;min-width:64px;text-align:center}
+
 /* ---------- AI assistant ---------- */
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 .bot-fab{position:fixed;z-index:45;right:calc(var(--gutter-r) + 4px);bottom:calc(env(safe-area-inset-bottom,0px) + 18px);display:flex;align-items:center;gap:10px;background:var(--brass);color:#3A0C26;border:0;border-radius:999px;padding:10px 18px 10px 10px;font:700 15px/1 var(--f-body);cursor:pointer;box-shadow:0 16px 34px -12px rgba(0,0,0,.65)}
@@ -579,6 +643,7 @@ footer .wrap{padding-block:30px;display:flex;justify-content:space-between;gap:1
     <nav class="nav-links" aria-label="Kryesore">
       <a href="#katalogu">Katalogu</a>
       <a href="#planifikuesi">Planifikuesi</a>
+      <a href="#libri">Shfleto</a>
       <a href="#galeria">Galeria</a>
       <a href="#procesi">Si punojmë</a>
       <a href="#pyetje">Pyetje</a>
@@ -602,7 +667,7 @@ footer .wrap{padding-block:30px;display:flex;justify-content:space-between;gap:1
       <div class="hero-cta">
         <a class="btn btn-brass" href="#kontakti">Kërko ofertë
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a class="btn btn-ghost" href="#katalogu">Shiko katalogun</a>
+        <a class="btn btn-ghost" href="#libri">Shfleto katalogun</a>
       </div>
       <div class="modes">
         <div class="mode"><b>Qira</b><span>sjellim, montojmë, çmontojmë</span></div>
@@ -688,6 +753,44 @@ footer .wrap{padding-block:30px;display:flex;justify-content:space-between;gap:1
   </div>
 </section>
 
+<!-- ============ FLIP BOOK ============ -->
+<section class="bookband" id="libri">
+  <div class="wrap">
+    <div class="sec-row">
+      <div>
+        <div class="eyebrow">Katalogu që shfletohet</div>
+        <h2>Shfletoni katalogun tonë si libër.</h2>
+      </div>
+      <p class="book-hint">Tërhiqni cepin e faqes ose përdorni shigjetat.</p>
+    </div>
+    <div class="book-stage">
+      <div class="book" id="book">
+      <div class="pg pg-cover" data-density="hard"><div class="pg-in"><img src="img/tenda-transparente-brenda.jpg" alt="" loading="lazy"><div class="cov"><span class="pg-eb">Katalogu 2026</span><div class="cov-mark">Tenda<i>Sopaj</i></div><p>Tenda · WC portabël · Frigo · Tavolina · Karrige · Dekor</p><span class="cov-hint">Zajm, Klinë · Kosovë</span></div></div></div>
+      <div class="pg"><div class="pg-in pg-text"><span class="pg-eb">Mirësevini</span><h3>Gjithçka për ahengun tuaj, nga një vend</h3><p>TendaSopaj nga Zajmi i Klinës ofron tenda, WC portabël, frigo, tavolina, karrige dhe dekor për dasma, synete, ditëlindje dhe evente.</p><p>Çdo gjë e kemi me qira, dhe shumicën edhe në shitje. Ekipi ynë sjell, monton dhe çmonton gjithçka, kudo në Kosovë.</p><ul class="pg-list"><li><b>Tel / WhatsApp</b><span>+383 49 479 471</span></li><li><b>Adresa</b><span>Zajm, Klinë, Kosovë</span></li><li><b>Shërbimi</b><span>Qira dhe shitje</span></li></ul><div class="pg-foot"><span>TendaSopaj</span><span>02</span></div></div></div>
+      <div class="pg"><div class="pg-in"><div class="pg-img"><img src="img/tenda-6x12-bardhe.jpg" alt="Katër madhësi, një cilësi" loading="lazy"></div><div class="pg-txt"><span class="pg-eb">Tenda të bardha</span><h3>Katër madhësi, një cilësi</h3><ul class="pg-list"><li><b>5 × 6 m</b><span>30 m² · ≈ 27 ulur</span></li><li><b>5 × 8 m</b><span>40 m² · ≈ 36 ulur</span></li><li><b>5 × 10 m</b><span>50 m² · ≈ 45 ulur</span></li><li><b>6 × 12 m</b><span>72 m² · ≈ 65 ulur</span></li></ul></div><div class="pg-foot"><span>TendaSopaj</span><span>03</span></div></div></div>
+      <div class="pg"><div class="pg-in"><div class="pg-img"><img src="img/tenda-transparente-lart.jpg" alt="Ahengu nën qiell të hapur" loading="lazy"></div><div class="pg-txt"><span class="pg-eb">Tenda transparente</span><h3>Ahengu nën qiell të hapur</h3><p>Të gjitha madhësitë vijnë edhe transparente. Ditën ka dritë natyrale, natën duken drita e yjet.</p></div><div class="pg-foot"><span>TendaSopaj</span><span>04</span></div></div></div>
+      <div class="pg"><div class="pg-in pg-text"><span class="pg-eb">Karakteristikat teknike</span><h3>E ndërtuar të zgjasë</h3><ul class="pg-list"><li><b>Çatia</b><span>PVC 500 g/m²</span></li><li><b>Anët</b><span>PVC 380 g/m²</span></li><li><b>Konstruksioni</b><span>Çelik i galvanizuar</span></li><li><b>Tubat</b><span>38 × 1,0 · 42 × 1,2 mm</span></li><li><b>Lidhëset</b><span>Me dado të salduar</span></li><li><b>Baza</b><span>Me shufër toke</span></li><li><b>Lartësia anësore</b><span>2,6 m</span></li></ul><div class="pg-foot"><span>TendaSopaj</span><span>05</span></div></div></div>
+      <div class="pg"><div class="pg-in"><div class="pg-img"><img src="img/tenda-transparente-brenda.jpg" alt="Gati për mysafirët" loading="lazy"></div><div class="pg-txt"><span class="pg-eb">Brenda tendës</span><h3>Gati për mysafirët</h3><p>Tavolina të rrumbullakëta, karrige Chiavari dhe drita vargu nën tendën transparente.</p></div><div class="pg-foot"><span>TendaSopaj</span><span>06</span></div></div></div>
+      <div class="pg"><div class="pg-in"><div class="pg-img"><img src="img/draperi-jashte.jpg" alt="Draperi për tendë" loading="lazy"></div><div class="pg-txt"><span class="pg-eb">Dekor</span><h3>Draperi për tendë</h3><p>Pëlhurë e bardhë e valëzuar nën tavan dhe perde të lidhura te shtyllat. Tenda bëhet sallë dasme.</p></div><div class="pg-foot"><span>TendaSopaj</span><span>07</span></div></div></div>
+      <div class="pg"><div class="pg-in"><div class="pg-img"><img src="img/draperi-dior-roze.jpg" alt="Qendra tavoline" loading="lazy"></div><div class="pg-txt"><span class="pg-eb">Dekor</span><h3>Qendra tavoline</h3><p>Lule të bardha e rozë ose buqeta mbi mbajtëse ari, në ngjyrat e ahengut tuaj.</p></div><div class="pg-foot"><span>TendaSopaj</span><span>08</span></div></div></div>
+      <div class="pg"><div class="pg-in"><div class="pg-img"><img src="img/tavolina-qendra-ari.jpg" alt="Tavolina të rrumbullakëta Ø 180 cm" loading="lazy"></div><div class="pg-txt"><span class="pg-eb">Tavolina & karrige</span><h3>Tavolina të rrumbullakëta Ø 180 cm</h3><p>10 vende për tavolinë, mbulesa të bardha, me karrige Chiavari.</p></div><div class="pg-foot"><span>TendaSopaj</span><span>09</span></div></div></div>
+      <div class="pg"><div class="pg-in"><div class="pg-img"><img src="img/karrige-dior-rresht.jpg" alt="Karrige Dior dhe tavolina të gjata" loading="lazy"></div><div class="pg-txt"><span class="pg-eb">Tavolina & karrige</span><h3>Karrige Dior dhe tavolina të gjata</h3><p>Tavolina 180 × 80 cm që bashkohen në rreshta, me karrige me shpinë të rrumbullakët.</p></div><div class="pg-foot"><span>TendaSopaj</span><span>10</span></div></div></div>
+      <div class="pg"><div class="pg-in"><div class="pg-img"><img src="img/wc-oborr.jpg" alt="Toilet me qera" loading="lazy"></div><div class="pg-txt"><span class="pg-eb">WC portabël</span><h3>Toilet me qera</h3><ul class="pg-list"><li><b>Qiraja</b><span>ditore · javore · mujore</span></li><li><b>Për</b><span>dasma, evente, festivale</span></li><li><b>Edhe për</b><span>punishte e terrene pune</span></li><li><b>Shërbimi</b><span>pastrim i rregullt</span></li></ul></div><div class="pg-foot"><span>TendaSopaj</span><span>11</span></div></div></div>
+      <div class="pg"><div class="pg-in"><div class="pg-img"><img src="img/wc-dy.jpg" alt="Kudo në Kosovë" loading="lazy"></div><div class="pg-txt"><span class="pg-eb">WC portabël</span><h3>Kudo në Kosovë</h3><p>I sjellim, i vendosim dhe i pastrojmë. Për ndërtim e komuna i shesim edhe në sasi.</p></div><div class="pg-foot"><span>TendaSopaj</span><span>12</span></div></div></div>
+      <div class="pg"><div class="pg-in"><div class="pg-img"><img src="img/frigo-rimorkio.jpg" alt="Frigorifer i lëvizshëm" loading="lazy"></div><div class="pg-txt"><span class="pg-eb">Frigo me qera</span><h3>Frigorifer i lëvizshëm</h3><p>Rimorkio frigoriferike që e sjellim te vendi i ahengut. Pijet rrinë të ftohta gjatë gjithë festës.</p></div><div class="pg-foot"><span>TendaSopaj</span><span>13</span></div></div></div>
+      <div class="pg"><div class="pg-in"><div class="pg-img"><img src="img/dysheme-pllaka.jpg" alt="Dysheme dhe tapet" loading="lazy"></div><div class="pg-txt"><span class="pg-eb">Shtesa</span><h3>Dysheme dhe tapet</h3><p>Pllaka plastike për tendë mbi bar ose dhé, tapet i kuq për hyrjen e çiftit dhe tapet jeshil.</p></div><div class="pg-foot"><span>TendaSopaj</span><span>14</span></div></div></div>
+      <div class="pg"><div class="pg-in"><div class="pg-img"><img src="img/aheng-lendine.jpg" alt="Ahengje të montuara nga ne" loading="lazy"></div><div class="pg-txt"><span class="pg-eb">Punët tona</span><h3>Ahengje të montuara nga ne</h3><p>Nga oborret e vogla deri te dasmat me qindra mysafirë në lëndinë.</p></div><div class="pg-foot"><span>TendaSopaj</span><span>15</span></div></div></div>
+      <div class="pg pg-cover pg-back" data-density="hard"><div class="pg-in"><div class="cov"><span class="pg-eb">Rezervoni datën</span><div class="cov-mark">Tenda<i>Sopaj</i></div><div class="cov-phone">+383 49 479 471</div><p>Telefon · WhatsApp · Viber</p><span class="cov-hint">Zajm, Klinë, Kosovë · Shërbim në gjithë Kosovën</span></div></div></div>
+      </div>
+    </div>
+    <div class="book-ctrl">
+      <button type="button" class="bk-btn" id="bkPrev" aria-label="Faqja e mëparshme">‹</button>
+      <span class="mono" id="bkNum">1 / 16</span>
+      <button type="button" class="bk-btn" id="bkNext" aria-label="Faqja tjetër">›</button>
+    </div>
+  </div>
+</section>
+
 <!-- ============ PLANNER ============ -->
 <section class="planner" id="planifikuesi">
   <div class="wrap">
@@ -725,16 +828,48 @@ footer .wrap{padding-block:30px;display:flex;justify-content:space-between;gap:1
 <!-- ============ GALLERY ============ -->
 <section class="gallery" id="galeria">
   <div class="wrap">
-    <div class="eyebrow">Nga terreni</div>
-    <h2>Ahengje të shtruara nga ekipi ynë.</h2>
-    <div class="gal">
-      <figure><img src="img/tavolina-chiavari.jpg" alt="Tavolina të rrumbullakëta me mbulesë të bardhë dhe karrige Chiavari të bardha në një oborr" loading="lazy"><figcaption>Tavolina Ø 180 cm me karrige Chiavari të bardha</figcaption></figure>
-      <figure><img src="img/tenda-brenda.jpg" alt="Brendësia e tendës me tavolina të gjata dhe karrige me mbulesë të bardhë" loading="lazy"><figcaption>Brenda tendës, gati për mysafirët</figcaption></figure>
-      <figure><img src="img/tapet-kuq.jpg" alt="Tapet i kuq dhe tapet jeshil në oborr mes tavolinave me mbulesa të bardha" loading="lazy"><figcaption>Tapet i kuq për hyrjen e çiftit</figcaption></figure>
-      <figure><img src="img/aheng-oborr.jpg" alt="Tavolina të gjata të vendosura në formë U në oborr me karrige me mbulesë" loading="lazy"><figcaption>Aheng në oborr, tavolinat në formë U</figcaption></figure>
+    <div class="sec-row">
+      <div>
+        <div class="eyebrow">Nga terreni</div>
+        <h2>Ahengje të shtruara nga ekipi ynë.</h2>
+      </div>
+      <div class="gfilters" role="group" aria-label="Filtro galerinë">
+        <button type="button" class="gf" data-g="all" aria-pressed="true">Të gjitha<span class="n">17</span></button>
+        <button type="button" class="gf" data-g="tenda" aria-pressed="false">Tenda<span class="n">3</span></button>
+        <button type="button" class="gf" data-g="dekor" aria-pressed="false">Dekor<span class="n">4</span></button>
+        <button type="button" class="gf" data-g="mobilje" aria-pressed="false">Tavolina & karrige<span class="n">5</span></button>
+        <button type="button" class="gf" data-g="wc" aria-pressed="false">WC<span class="n">3</span></button>
+        <button type="button" class="gf" data-g="frigo" aria-pressed="false">Frigo<span class="n">2</span></button>
+      </div>
+    </div>
+    <div class="masonry" id="masonry">
+      <figure data-g="tenda"><button type="button" class="gimg" data-i="0" aria-label="Zmadho: Tendë transparente me tavolina të rrumbullakëta dhe drita vargu"><img src="img/tenda-transparente-brenda.jpg" alt="Tendë transparente me tavolina të rrumbullakëta dhe drita vargu" loading="lazy"></button><figcaption>Tendë transparente me tavolina të rrumbullakëta dhe drita vargu</figcaption></figure>
+      <figure data-g="dekor"><button type="button" class="gimg" data-i="1" aria-label="Zmadho: Tendë me draperi të bardhë dhe qendra tavoline rozë"><img src="img/draperi-jashte.jpg" alt="Tendë me draperi të bardhë dhe qendra tavoline rozë" loading="lazy"></button><figcaption>Tendë me draperi të bardhë dhe qendra tavoline rozë</figcaption></figure>
+      <figure data-g="mobilje"><button type="button" class="gimg" data-i="2" aria-label="Zmadho: Dasëm në lëndinë me tavolina të rrumbullakëta"><img src="img/aheng-lendine.jpg" alt="Dasëm në lëndinë me tavolina të rrumbullakëta" loading="lazy"></button><figcaption>Dasëm në lëndinë me tavolina të rrumbullakëta</figcaption></figure>
+      <figure data-g="tenda"><button type="button" class="gimg" data-i="3" aria-label="Zmadho: Montimi i tendës transparente në oborr"><img src="img/tenda-transparente-lart.jpg" alt="Montimi i tendës transparente në oborr" loading="lazy"></button><figcaption>Montimi i tendës transparente në oborr</figcaption></figure>
+      <figure data-g="wc"><button type="button" class="gimg" data-i="4" aria-label="Zmadho: WC portabël me qira në oborr"><img src="img/wc-oborr.jpg" alt="WC portabël me qira në oborr" loading="lazy"></button><figcaption>WC portabël me qira në oborr</figcaption></figure>
+      <figure data-g="dekor"><button type="button" class="gimg" data-i="5" aria-label="Zmadho: Karrige Dior dhe dekor rozë nën draperi"><img src="img/draperi-dior-roze.jpg" alt="Karrige Dior dhe dekor rozë nën draperi" loading="lazy"></button><figcaption>Karrige Dior dhe dekor rozë nën draperi</figcaption></figure>
+      <figure data-g="mobilje"><button type="button" class="gimg" data-i="6" aria-label="Zmadho: Karrige Chiavari dhe qendra tavoline me ari"><img src="img/tavolina-qendra-ari.jpg" alt="Karrige Chiavari dhe qendra tavoline me ari" loading="lazy"></button><figcaption>Karrige Chiavari dhe qendra tavoline me ari</figcaption></figure>
+      <figure data-g="frigo"><button type="button" class="gimg" data-i="7" aria-label="Zmadho: Frigo me qera, frigorifer i lëvizshëm"><img src="img/frigo-rimorkio.jpg" alt="Frigo me qera, frigorifer i lëvizshëm" loading="lazy"></button><figcaption>Frigo me qera, frigorifer i lëvizshëm</figcaption></figure>
+      <figure data-g="dekor"><button type="button" class="gimg" data-i="8" aria-label="Zmadho: Draperi e bardhë mbi tavolinat e dasmës"><img src="img/draperi-tavolina.jpg" alt="Draperi e bardhë mbi tavolinat e dasmës" loading="lazy"></button><figcaption>Draperi e bardhë mbi tavolinat e dasmës</figcaption></figure>
+      <figure data-g="mobilje"><button type="button" class="gimg" data-i="9" aria-label="Zmadho: Tavolina të gjata me karrige Dior"><img src="img/karrige-dior-rresht.jpg" alt="Tavolina të gjata me karrige Dior" loading="lazy"></button><figcaption>Tavolina të gjata me karrige Dior</figcaption></figure>
+      <figure data-g="wc"><button type="button" class="gimg" data-i="10" aria-label="Zmadho: Dy kabina WC portabël"><img src="img/wc-dy.jpg" alt="Dy kabina WC portabël" loading="lazy"></button><figcaption>Dy kabina WC portabël</figcaption></figure>
+      <figure data-g="mobilje"><button type="button" class="gimg" data-i="11" aria-label="Zmadho: Tavolina Ø 180 cm me karrige Chiavari"><img src="img/tavolina-chiavari.jpg" alt="Tavolina Ø 180 cm me karrige Chiavari" loading="lazy"></button><figcaption>Tavolina Ø 180 cm me karrige Chiavari</figcaption></figure>
+      <figure data-g="tenda"><button type="button" class="gimg" data-i="12" aria-label="Zmadho: Brenda tendës me tavolina të gjata"><img src="img/tenda-brenda.jpg" alt="Brenda tendës me tavolina të gjata" loading="lazy"></button><figcaption>Brenda tendës me tavolina të gjata</figcaption></figure>
+      <figure data-g="dekor"><button type="button" class="gimg" data-i="13" aria-label="Zmadho: Tapet i kuq për hyrjen e çiftit"><img src="img/tapet-kuq.jpg" alt="Tapet i kuq për hyrjen e çiftit" loading="lazy"></button><figcaption>Tapet i kuq për hyrjen e çiftit</figcaption></figure>
+      <figure data-g="mobilje"><button type="button" class="gimg" data-i="14" aria-label="Zmadho: Aheng në oborr, tavolinat në formë U"><img src="img/aheng-oborr.jpg" alt="Aheng në oborr, tavolinat në formë U" loading="lazy"></button><figcaption>Aheng në oborr, tavolinat në formë U</figcaption></figure>
+      <figure data-g="wc"><button type="button" class="gimg" data-i="15" aria-label="Zmadho: Toilet me qera, ditore, javore e mujore"><img src="img/poster-wc.jpg" alt="Toilet me qera, ditore, javore e mujore" loading="lazy"></button><figcaption>Toilet me qera: ditore, javore, mujore</figcaption></figure>
+      <figure data-g="frigo"><button type="button" class="gimg" data-i="16" aria-label="Zmadho: Frigo me qera"><img src="img/poster-frigo.jpg" alt="Frigo me qera, frigorifer i lëvizshëm" loading="lazy"></button><figcaption>Frigo me qera, frigorifer i lëvizshëm</figcaption></figure>
     </div>
   </div>
 </section>
+
+<div class="lb" id="lb" hidden role="dialog" aria-label="Foto e zmadhuar">
+  <button type="button" class="lb-x" id="lbX" aria-label="Mbyll">✕</button>
+  <button type="button" class="lb-nav prev" id="lbP" aria-label="Foto e mëparshme">‹</button>
+  <figure><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure>
+  <button type="button" class="lb-nav next" id="lbN" aria-label="Foto tjetër">›</button>
+</div>
 
 <!-- ============ PROCESS ============ -->
 <section class="process" id="procesi">
@@ -863,6 +998,7 @@ footer .wrap{padding-block:30px;display:flex;justify-content:space-between;gap:1
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
 <script>
 (function(){
 "use strict";
@@ -885,32 +1021,37 @@ const CATS = [
   {id:'dekor', name:'Dekor & ndriçim', icon:'decor'}
 ];
 const PRODUCTS = [
-  {c:'tenda', n:'Tendë 5 × 6 m', d:'Për ahengje të vogla familjare, synet, ditëlindje ose si zgjatim i oborrit.', s:[['Sipërfaqja','30 m²'],['Kapaciteti','≈ 27 ulur'],['Lartësia anësore','2,6 m'],['Çatia','PVC 500 g/m²'],['Anët','PVC 380 g/m²']], r:1, b:1, img:{white:'tenda-5x6-bardhe', clear:'tenda-transparente-2'}},
-  {c:'tenda', n:'Tendë 5 × 8 m', d:'Anë me dritare me hark dhe buzë të valëzuar. Hyn në shumicën e oborreve.', s:[['Sipërfaqja','40 m²'],['Kapaciteti','≈ 36 ulur'],['Lartësia anësore','2,6 m'],['Çatia','PVC 500 g/m²'],['Anët','PVC 380 g/m²']], r:1, b:1, img:{white:'tenda-5x8-bardhe', clear:'tenda-transparente-1'}},
-  {c:'tenda', n:'Tendë 5 × 10 m', d:'Për ahengje me tavolina të gjata në dy rreshta. Anët hiqen kur bën vapë.', s:[['Sipërfaqja','50 m²'],['Kapaciteti','≈ 45 ulur'],['Lartësia anësore','2,6 m'],['Çatia','PVC 500 g/m²'],['Anët','PVC 380 g/m²']], r:1, b:1, img:{white:'tenda-5x10-bardhe', clear:'tenda-transparente-2'}},
-  {c:'tenda', n:'Tendë 6 × 12 m', d:'Modeli ynë më i madh, ai që shihni lart në 3D. Disa tenda bashkohen për ahengje më të mëdha.', s:[['Sipërfaqja','72 m²'],['Kapaciteti','≈ 65 ulur'],['Lartësia anësore','2,6 m'],['Çatia','PVC 500 g/m²'],['Anët','PVC 380 g/m²']], r:1, b:1, img:{white:'tenda-6x12-bardhe', clear:'tenda-transparente-1'}},
+  {c:'tenda', n:'Tendë 5 × 6 m', d:'Për ahengje të vogla familjare, synet, ditëlindje ose si zgjatim i oborrit.', s:[['Sipërfaqja','30 m²'],['Kapaciteti','≈ 27 ulur'],['Lartësia anësore','2,6 m'],['Çatia','PVC 500 g/m²'],['Anët','PVC 380 g/m²']], r:1, b:1, img:{white:'tenda-5x6-bardhe', clear:'tenda-transparente-lart'}},
+  {c:'tenda', n:'Tendë 5 × 8 m', d:'Anë me dritare me hark dhe buzë të valëzuar. Hyn në shumicën e oborreve.', s:[['Sipërfaqja','40 m²'],['Kapaciteti','≈ 36 ulur'],['Lartësia anësore','2,6 m'],['Çatia','PVC 500 g/m²'],['Anët','PVC 380 g/m²']], r:1, b:1, img:{white:'tenda-5x8-bardhe', clear:'tenda-transparente-brenda'}},
+  {c:'tenda', n:'Tendë 5 × 10 m', d:'Për ahengje me tavolina të gjata në dy rreshta. Anët hiqen kur bën vapë.', s:[['Sipërfaqja','50 m²'],['Kapaciteti','≈ 45 ulur'],['Lartësia anësore','2,6 m'],['Çatia','PVC 500 g/m²'],['Anët','PVC 380 g/m²']], r:1, b:1, img:{white:'tenda-5x10-bardhe', clear:'tenda-transparente-lart'}},
+  {c:'tenda', n:'Tendë 6 × 12 m', d:'Modeli ynë më i madh, ai që shihni lart në 3D. Disa tenda bashkohen për ahengje më të mëdha.', s:[['Sipërfaqja','72 m²'],['Kapaciteti','≈ 65 ulur'],['Lartësia anësore','2,6 m'],['Çatia','PVC 500 g/m²'],['Anët','PVC 380 g/m²']], r:1, b:1, img:{white:'tenda-6x12-bardhe', clear:'tenda-transparente-brenda'}},
 
-  {c:'wc', n:'WC portabël standard', d:'Kabinë plastike me rezervuar, ajrosje dhe bravë me tregues të zënë/lirë.', s:[['Për','≈ 60 mysafirë'],['Masat','1,1 × 1,2 m'],['Mirëmbajtja','e përfshirë']], r:1, b:1, img:'wc-pamje'},
+  {c:'wc', n:'WC portabël me qira', d:'Kabinë plastike me ajrosje dhe bravë. Me qira ditore, javore ose mujore, me pastrim të rregullt.', s:[['Qiraja','ditore · javore · mujore'],['Për','≈ 60 mysafirë'],['Pastrimi','i rregullt']], r:1, b:1, img:'wc-oborr'},
   {c:'wc', n:'WC VIP', d:'Kabinë luksoze me lavaman, ujë rrjedhës, pasqyrë dhe ndriçim. Për dasma e ahengje elegante.', s:[['Lavaman','po'],['Ndriçim','LED'],['Pastrimi','pas ahengut']], r:1, b:1},
-  {c:'wc', n:'WC portabël për kantiere', d:'Kabina të forta për punëtori ndërtimi, komuna dhe evente publike. Në shitje edhe në sasi.', s:[['Sasia','nga 1 copë'],['Ngjyra','blu'],['Shërbimi','zbrazje sipas marrëveshjes']], r:1, b:1, img:'wc-rresht'},
+  {c:'wc', n:'WC për punishte e evente', d:'Për punishte ndërtimi, terrene pune të përkohshme, festivale dhe aktivitete në gjithë Kosovën. Në shitje edhe në sasi.', s:[['Qiraja','ditore · javore · mujore'],['Sasia','nga 1 copë'],['Shërbimi','pastrim i rregullt']], r:1, b:1, img:'wc-dy'},
   {c:'wc', n:'Stacion për larje duarsh', d:'Lavaman portabël me pedale, sapun dhe letër. Vendoset pranë WC ose kuzhinës.', s:[['Rubineta','2'],['Rezervuar','≈ 90 L'],['Rrymë','nuk duhet']], r:1, b:1},
 
+
+  {c:'frigo', n:'Frigo me qera, frigorifer i lëvizshëm', d:'Rimorkio frigoriferike që e sjellim deri te vendi i ahengut. Pijet rrinë të ftohta gjatë gjithë festës.', s:[['Lloji','rimorkio e lëvizshme'],['Transporti','e sjellim ne'],['Për','ahengje, evente, festivale']], r:1, b:0, img:'frigo-rimorkio'},
   {c:'frigo', n:'Frigorifer me derë xhami 400 L', d:'Mban pijet të freskëta gjatë gjithë ahengut. Vendoset pas barit ose në tendë.', s:[['Vëllimi','400 L'],['Kapaciteti','≈ 300 kanaçe'],['Temperatura','+2 deri +8 °C']], r:1, b:1},
   {c:'frigo', n:'Frigorifer me 2 dyer 1000 L', d:'Për ahengje të mëdha. Dy dyer xhami për qasje të shpejtë të kamarierëve.', s:[['Vëllimi','1000 L'],['Kapaciteti','≈ 750 kanaçe'],['Dyer','2 xhami']], r:1, b:1},
   {c:'frigo', n:'Dhomë ftohëse mobile', d:'Kontejner frigoriferik për pije, mish dhe ëmbëlsira kur sasia është e madhe.', s:[['Hyrje','në këmbë'],['Temperatura','0 deri +8 °C'],['Rrymë','380 V']], r:1, b:1},
 
   {c:'mobilje', n:'Tavolinë e rrumbullakët Ø 180 cm', d:'Tavolina klasike e dasmës, me mbulesë të bardhë deri në tokë.', s:[['Vende','10'],['Lartësia','76 cm'],['Mbulesa','e përfshirë']], r:1, b:1, img:'tavolina-chiavari'},
   {c:'mobilje', n:'Tavolinë drejtkëndore 180 × 80 cm', d:'Për tavolinën e çiftit, bufe ose rreshta të gjatë mysafirësh.', s:[['Vende','6–8'],['Lartësia','76 cm'],['Palosëse','po']], r:1, b:1, img:'aheng-oborr'},
-  {c:'mobilje', n:'Karrige Chiavari', d:'Karrige elegante me jastëk, në ngjyrë ari, argjendi ose transparente.', s:[['Ngjyrat','ari · argjend · kristal'],['Jastëku','i përfshirë'],['Stivohen','po']], r:1, b:1},
+  {c:'mobilje', n:'Karrige Chiavari', d:'Karrige elegante të bardha, klasike për dasma, me tavolina të rrumbullakëta dhe qendra tavoline.', s:[['Ngjyra','e bardhë'],['Stili','klasik'],['Stivohen','po']], r:1, b:1, img:'tavolina-qendra-ari'},
+  {c:'mobilje', n:'Karrige Dior', d:'Karrige me shpinë të rrumbullakët e të gërshetuar. Duken bukur me draperi dhe dekor rozë.', s:[['Ngjyra','e bardhë'],['Për','tavolina të rrumbullakëta e të gjata'],['Stili','modern']], r:1, b:1, img:'karrige-dior-rresht'},
   {c:'mobilje', n:'Karrige me mbulesë e fjongo', d:'Mbulesë e bardhë elastike me fjongo në ngjyrën e ahengut tuaj.', s:[['Mbulesa','e bardhë'],['Fjongo','sipas zgjedhjes'],['Larje','pas çdo ahengu']], r:1, b:1, img:'tenda-brenda'},
   {c:'mobilje', n:'Tavolinë koktej Ø 60 cm', d:'Tavolinë e lartë për pritje, hyrje dhe ahengje në këmbë.', s:[['Lartësia','110 cm'],['Për','4–6 persona'],['Mbulesa','elastike']], r:1, b:1},
 
+  {c:'dekor', n:'Draperi për tendë', d:'Pëlhurë e bardhë e valëzuar nën tavan dhe perde të lidhura te shtyllat. E kthen tendën në sallë dasme.', s:[['Ngjyra','e bardhë'],['Montimi','nga ekipi ynë'],['Për','të gjitha tendat']], r:1, b:0, img:'draperi-tavolina'},
+  {c:'dekor', n:'Qendra tavoline', d:'Lule artificiale të bardha e rozë ose buqeta mbi mbajtëse ari, për çdo tavolinë.', s:[['Ngjyrat','e bardhë · rozë · ari'],['Lloji','lule artificiale'],['Për','çdo tavolinë']], r:1, b:1, img:'draperi-dior-roze'},
   {c:'dekor', n:'Drita vargu 50 m', d:'Llamba të ngrohta që varen nën tavanin e tendës. Atmosfera që duket në çdo fotografi.', s:[['Gjatësia','50 m'],['Llamba','≈ 100'],['Ngjyra','e bardhë e ngrohtë']], r:1, b:1},
   {c:'dekor', n:'Llambadarë kristali', d:'Varen nga konstruksioni i tendës mbi pistën e vallëzimit ose tavolinën e çiftit.', s:[['Krahë','8–12'],['Montimi','nga ekipi ynë'],['Rrymë','220 V']], r:1, b:1},
   {c:'dekor', n:'Skenë dhe pistë vallëzimi', d:'Podium për çiftin ose muzikën dhe dysheme vallëzimi me module.', s:[['Modulet','1 × 2 m'],['Lartësia','20–60 cm'],['Sipërfaqja','sipas kërkesës']], r:1, b:0},
   {c:'dekor', n:'Harqe me balona e lule', d:'Hark për hyrjen e tendës, fotografitë ose tavolinën e çiftit, në ngjyrat e ahengut tuaj.', s:[['Lartësia','≈ 2,4 m'],['Materiali','balona, lule'],['Stili','sipas temës']], r:1, b:0, img:'tenda-balona'},
   {c:'dekor', n:'Tapet i kuq dhe tapet jeshil', d:'Rrugica e kuqe për hyrjen e çiftit dhe tapet jeshil për pistën ose oborrin.', s:[['Gjerësia','1–2 m'],['Gjatësia','sipas kërkesës'],['Ngjyrat','e kuqe · jeshile']], r:1, b:1, img:'tapet-kuq'},
-  {c:'dekor', n:'Dysheme për tendë', d:'Pllaka plastike të forta që e mbajnë tendën të pastër edhe kur toka është e lagësht.', s:[['Pllaka','1 × 1 m'],['Për','bar, dhé, zhavorr'],['Ngarkesa','e lartë']], r:1, b:1, img:'tenda-dysheme'},
+  {c:'dekor', n:'Dysheme për tendë', d:'Pllaka plastike të forta që e mbajnë tendën të pastër edhe kur toka është e lagësht.', s:[['Pllaka','1 × 1 m'],['Për','bar, dhé, zhavorr'],['Ngarkesa','e lartë']], r:1, b:1, img:'dysheme-pllaka'},
   {c:'dekor', n:'Ngrohës me gaz', d:'Ngrohës kërpudhë për ahengje vjeshte e dimri, brenda ose jashtë tendës.', s:[['Mbulon','≈ 20 m²'],['Lartësia','2,2 m'],['Gazi','i përfshirë']], r:1, b:1}
 ];
 
@@ -1402,14 +1543,14 @@ const BOT = (function(){
       r:()=>({t:'Tendat i kemi në dy ngjyra: **të bardha** (PVC, me dritare me hark) dhe **transparente**, që duken bukur në ahengje mbrëmjeje me drita. Të gjitha madhësitë vijnë në të dyja ngjyrat.', a:[A.tents]})},
     {id:'tents', k:['tend','cader','cadra','cadër','shatorr','cador','madhesi','permas','dimension','metra','sa te medha'],
       r:()=>({t:'Kemi katër madhësi tendash, të bardha ose transparente:\n• **5 × 6 m**, 30 m², ≈ 27 mysafirë ulur\n• **5 × 8 m**, 40 m², ≈ 36 mysafirë\n• **5 × 10 m**, 50 m², ≈ 45 mysafirë\n• **6 × 12 m**, 72 m², ≈ 65 mysafirë\n\nLartësia anësore është 2,6 m. I japim me qira dhe i shesim.', a:[A.tents,A.plan]})},
-    {id:'wc', k:['wc','tualet','banjo','nevojtore','toalet','kabin','hale','sanitar'],
-      r:()=>({t:'Kemi:\n• **WC portabël standard**, kabinë plastike me ajrosje, rreth 1 WC për 60 mysafirë\n• **WC VIP** me lavaman, ujë rrjedhës, pasqyrë dhe ndriçim\n• **Stacion për larje duarsh**\n• **WC për kantiere** dhe evente publike, edhe në sasi\n\nI japim me qira dhe i shesim.', a:[A.wc,A.call]})},
-    {id:'frigo', k:['frigorifer','frigo','ftoh','pije','birr','uje','fresk','ftohese'],
-      r:()=>({t:'Për pije të freskëta kemi:\n• **Frigorifer me derë xhami 400 L**, rreth 300 kanaçe\n• **Frigorifer me 2 dyer 1000 L** për ahengje të mëdha\n• **Dhomë ftohëse mobile** kur sasia është shumë e madhe\n\nRekomandojmë rreth 1 frigorifer 400 L për 80 mysafirë.', a:[A.frigo]})},
-    {id:'furn', k:['tavolin','karrig','ulese','chiavari','kiavari','mbules','fjongo','koktej'],
-      r:()=>({t:'Kemi tavolina të rrumbullakëta Ø 180 cm (10 vende), tavolina drejtkëndore 180 × 80 cm, tavolina koktej, karrige Chiavari (ari, argjend, kristal) dhe karrige me mbulesë të bardhë e fjongo. Mbulesat e tavolinave janë të përfshira.', a:[A.furn,A.gal]})},
-    {id:'decor', k:['dekor','drita','llamb','balon','hark','tapet','skene','podium','dysheme','llambadar','lule','ngroh','zbukur'],
-      r:()=>({t:'Për dekor kemi drita vargu, llambadarë kristali, harqe me balona e lule, tapet të kuq dhe jeshil, skenë e pistë vallëzimi, dysheme për tendë dhe ngrohës me gaz për stinën e ftohtë.', a:[A.decor,A.gal]})},
+    {id:'wc', k:['ditore','javore','mujore','punisht','kantier','wc','tualet','banjo','nevojtore','toalet','kabin','hale','sanitar'],
+      r:()=>({t:'Kemi **WC portabël me qira ditore, javore ose mujore**, me pastrim të rregullt:\n• për **dasma dhe organizime**, rreth 1 WC për 60 mysafirë\n• për **evente dhe festivale**\n• për **punishte ndërtimi** dhe terrene pune të përkohshme\n• **WC VIP** me lavaman, ujë rrjedhës dhe ndriçim\n• **stacion për larje duarsh**\n\nShërbejmë në gjithë Kosovën. I japim me qira dhe i shesim.', a:[A.wc,A.call]})},
+    {id:'frigo', k:['rimorkio','levizshem','frigorifer','frigo','ftoh','pije','birr','uje','fresk','ftohese'],
+      r:()=>({t:'Për pije të freskëta kemi:\n• **Frigo me qera, frigorifer i lëvizshëm**: rimorkio frigoriferike që e sjellim te vendi i ahengut\n• **Frigorifer me derë xhami 400 L**, rreth 300 kanaçe\n• **Frigorifer me 2 dyer 1000 L** për ahengje të mëdha\n• **Dhomë ftohëse mobile** kur sasia është shumë e madhe\n\nRekomandojmë rreth 1 frigorifer 400 L për 80 mysafirë.', a:[A.frigo]})},
+    {id:'furn', k:['dior','tavolin','karrig','ulese','chiavari','kiavari','mbules','fjongo','koktej'],
+      r:()=>({t:'Kemi tavolina të rrumbullakëta Ø 180 cm (10 vende), tavolina drejtkëndore 180 × 80 cm, tavolina koktej, karrige Chiavari të bardha, **karrige Dior** me shpinë të rrumbullakët dhe karrige me mbulesë të bardhë e fjongo. Mbulesat e tavolinave janë të përfshira.', a:[A.furn,A.gal]})},
+    {id:'decor', k:['draperi','perde','qendr','buqet','dekor','drita','llamb','balon','hark','tapet','skene','podium','dysheme','llambadar','lule','ngroh','zbukur'],
+      r:()=>({t:'Për dekor kemi **draperi të bardhë** për tavanin e tendës, **qendra tavoline** të bardha, rozë e ari, drita vargu, llambadarë kristali, harqe me balona e lule, tapet të kuq dhe jeshil, skenë e pistë vallëzimi, dysheme për tendë dhe ngrohës me gaz për stinën e ftohtë.', a:[A.decor,A.gal]})},
     {id:'price', k:['sa kushton','kushton','cmim','qmim','cmimi','euro','eur','pare','oferte','sa del','sa bon','sa ben','sa esht','lir','shtrenjt'],
       r:()=>({t:'Çmimi varet nga madhësia e tendës, data, vendi i ahengut dhe pajisjet shtesë, prandaj e japim me ofertë. Na tregoni datën, vendin dhe numrin e mysafirëve dhe ju përgjigjemi shpejt.', a:[A.wa,A.call,A.form]})},
     {id:'buy', k:['blej','bleje','blerje','shit','shitje','shesni','shisni','me ble','e blej'],
@@ -1422,10 +1563,12 @@ const BOT = (function(){
       r:()=>({t:'Punojmë kudo në Kosovë. Baza jonë është në Zajm të Klinës dhe shpesh jemi në Klinë, Pejë, Gjakovë, Prizren, Malishevë, Rahovec, Istog, Skenderaj, Drenas, Mitrovicë dhe Prishtinë.', a:[A.call]})},
     {id:'booking', k:['rezerv','data','e lire','i lire','datat','kur','zene','termin','sa heret','afat'],
       r:()=>({t:'Rezervoni sa më herët, sidomos për dasmat e verës kur datat zihen shpejt. Na tregoni datën dhe ju konfirmojmë nëse është e lirë.', a:[A.wa,A.form]})},
+    {id:'catalog', k:['katalog','foto','fotografi','galeri','shiko','pamje','video'],
+      r:()=>({t:'Po! Kemi katalogun që shfletohet si libër dhe galerinë me foto nga ahengjet tona.', a:[{label:'Shfleto katalogun', act:'go:libri'},A.gal]})},
     {id:'hours', k:['orar','ore','hapur','mbyll','punoni sot','e diel','e shtune'],
       r:()=>({t:'Për orarin dhe për pyetje të shpejta na thirrni ose na shkruani në WhatsApp. Përgjigjemi sa më shpejt.', a:[A.call,A.wa]})}
   ];
-  const CHIPS=['Ku ndodheni?','Si t\'ju kontaktoj?','Çfarë tenda keni?','Çfarë WC keni?','Sa kushton?','Frigoriferë për pije','Tavolina & karrige','A i shitni?','A e montoni ju?','Sa tendë më duhet për 100 mysafirë?'];
+  const CHIPS=['Ku ndodheni?','A keni katalog?','Si t\'ju kontaktoj?','Çfarë tenda keni?','Çfarë WC keni?','Sa kushton?','Frigoriferë për pije','Tavolina & karrige','A i shitni?','A e montoni ju?','Sa tendë më duhet për 100 mysafirë?'];
   const TENTS=[[30,'5 × 6 m'],[40,'5 × 8 m'],[50,'5 × 10 m'],[72,'6 × 12 m']];
 
   function guests(n){
@@ -1502,6 +1645,54 @@ const BOT = (function(){
     if(kind==='cat'){ const tab=document.querySelector(`[data-cat="${val}"]`); if(tab) tab.click(); document.getElementById('katalogu').scrollIntoView({behavior:'smooth'}); }
     else document.getElementById(val).scrollIntoView({behavior:'smooth'});
     if(window.innerWidth<700) close();
+  });
+})();
+
+/* ===== Gallery filter + lightbox ===== */
+(function(){
+  const figs=[...document.querySelectorAll('#masonry figure')];
+  document.querySelectorAll('.gf').forEach(b=>b.addEventListener('click',()=>{
+    document.querySelectorAll('.gf').forEach(x=>x.setAttribute('aria-pressed',x===b));
+    const g=b.dataset.g; figs.forEach(f=>f.hidden = g!=='all' && f.dataset.g!==g);
+  }));
+  const lb=document.getElementById('lb'), img=document.getElementById('lbImg'), cap=document.getElementById('lbCap');
+  let cur=0;
+  const vis=()=>figs.filter(f=>!f.hidden);
+  function show(fig){ const im=fig.querySelector('img'); img.src=im.src; img.alt=im.alt; cap.textContent=fig.querySelector('figcaption').textContent; cur=vis().indexOf(fig); }
+  function step(d){ const v=vis(); show(v[(cur+d+v.length)%v.length]); }
+  figs.forEach(f=>f.querySelector('.gimg').addEventListener('click',()=>{ show(f); lb.hidden=false; document.documentElement.style.overflow='hidden'; }));
+  function close(){ lb.hidden=true; document.documentElement.style.overflow=''; }
+  document.getElementById('lbX').addEventListener('click',close);
+  document.getElementById('lbP').addEventListener('click',()=>step(-1));
+  document.getElementById('lbN').addEventListener('click',()=>step(1));
+  lb.addEventListener('click',e=>{ if(e.target===lb) close(); });
+  document.addEventListener('keydown',e=>{ if(lb.hidden) return; if(e.key==='Escape') close(); if(e.key==='ArrowLeft') step(-1); if(e.key==='ArrowRight') step(1); });
+  let sx=null; lb.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
+  lb.addEventListener('touchend',e=>{ if(sx===null) return; const dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>50) step(dx<0?1:-1); sx=null; });
+})();
+
+/* ===== Flip book ===== */
+(function(){
+  const el=document.getElementById('book'), num=document.getElementById('bkNum');
+  const total=el.querySelectorAll('.pg').length;
+  if(typeof St==='undefined' || !St.PageFlip){
+    el.classList.add('fallback'); num.textContent=total+' faqe';
+    document.getElementById('bkPrev').onclick=()=>el.scrollBy({left:-300,behavior:'smooth'});
+    document.getElementById('bkNext').onclick=()=>el.scrollBy({left:300,behavior:'smooth'});
+    return;
+  }
+  const pf=new St.PageFlip(el,{width:420,height:560,size:'stretch',minWidth:260,maxWidth:520,minHeight:347,maxHeight:694,
+    showCover:true,usePortrait:true,mobileScrollSupport:true,maxShadowOpacity:.45,flippingTime:900,drawShadow:true});
+  pf.loadFromHTML(el.querySelectorAll('.pg'));
+  const upd=()=>{ num.textContent=(pf.getCurrentPageIndex()+1)+' / '+total; };
+  pf.on('flip',upd); pf.on('changeOrientation',upd); upd();
+  document.getElementById('bkPrev').onclick=()=>pf.flipPrev();
+  document.getElementById('bkNext').onclick=()=>pf.flipNext();
+  document.addEventListener('keydown',e=>{
+    const r=el.getBoundingClientRect(); if(r.bottom<0||r.top>innerHeight) return;
+    if(!document.getElementById('lb').hidden) return;
+    if(e.target.matches && e.target.matches('input,textarea,select')) return;
+    if(e.key==='ArrowRight') pf.flipNext(); if(e.key==='ArrowLeft') pf.flipPrev();
   });
 })();
 </script>
